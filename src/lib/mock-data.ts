@@ -1,5 +1,6 @@
-export type Status = "Paid" | "Pending" | "Overdue";
-export type Risk = "Low" | "Medium" | "High";
+export type Status = "Pago" | "Pendente" | "Vencido" | "Em revisão";
+export type Risk = "Baixo" | "Médio" | "Alto" | "Crítico";
+export type Issue = "Fornecedor duplicado" | "Valor suspeito" | "Data vencida" | "Campo incompleto";
 
 export interface Record {
   id: string;
@@ -9,55 +10,55 @@ export interface Record {
   amount: number;
   status: Status;
   risk: Risk;
-  issue?: "Duplicate" | "Suspicious" | "Missing Data" | null;
+  issue?: Issue | null;
 }
 
 export const records: Record[] = [
-  { id: "INV-1042", supplier: "Acme Logistics", category: "Logistics", dueDate: "2026-05-12", amount: 4820.5, status: "Pending", risk: "Medium", issue: null },
-  { id: "INV-1043", supplier: "BlueOcean Supplies", category: "Materials", dueDate: "2026-05-03", amount: 12300, status: "Overdue", risk: "High", issue: "Suspicious" },
-  { id: "INV-1044", supplier: "Northwind Co.", category: "Software", dueDate: "2026-05-18", amount: 980, status: "Pending", risk: "Low", issue: null },
-  { id: "INV-1045", supplier: "Acme Logistic", category: "Logistics", dueDate: "2026-05-22", amount: 4810, status: "Pending", risk: "High", issue: "Duplicate" },
-  { id: "INV-1046", supplier: "Greenfield Energy", category: "Utilities", dueDate: "2026-04-29", amount: 2150, status: "Overdue", risk: "Medium", issue: null },
-  { id: "INV-1047", supplier: "Quantum Print", category: "Marketing", dueDate: "2026-05-30", amount: 540, status: "Paid", risk: "Low", issue: null },
-  { id: "INV-1048", supplier: "Zen Office", category: "Office", dueDate: "2026-06-02", amount: 1320, status: "Pending", risk: "Low", issue: null },
-  { id: "INV-1049", supplier: "Vertex Cloud", category: "Software", dueDate: "2026-05-15", amount: 7600, status: "Pending", risk: "Medium", issue: "Missing Data" },
-  { id: "INV-1050", supplier: "Northwind Co.", category: "Software", dueDate: "2026-05-19", amount: 985, status: "Pending", risk: "Medium", issue: "Duplicate" },
-  { id: "INV-1051", supplier: "Stellar Freight", category: "Logistics", dueDate: "2026-04-21", amount: 9210, status: "Overdue", risk: "High", issue: null },
-  { id: "INV-1052", supplier: "Pinecrest HR", category: "Services", dueDate: "2026-06-10", amount: 3300, status: "Paid", risk: "Low", issue: null },
-  { id: "INV-1053", supplier: "Helix Labs", category: "R&D", dueDate: "2026-05-09", amount: 18250, status: "Pending", risk: "High", issue: "Suspicious" },
+  { id: "PAG-1042", supplier: "Mercado Central Ltda", category: "Suprimentos", dueDate: "12/05/2026", amount: 4820, status: "Pendente", risk: "Médio", issue: null },
+  { id: "PAG-1043", supplier: "Distribuidora Alpha", category: "Distribuição", dueDate: "03/05/2026", amount: 12300, status: "Vencido", risk: "Alto", issue: "Data vencida" },
+  { id: "PAG-1044", supplier: "Clínica São Lucas", category: "Saúde", dueDate: "18/05/2026", amount: 980, status: "Pendente", risk: "Baixo", issue: null },
+  { id: "PAG-1045", supplier: "Mercado Central LTDA", category: "Suprimentos", dueDate: "22/05/2026", amount: 4810, status: "Pendente", risk: "Alto", issue: "Fornecedor duplicado" },
+  { id: "PAG-1046", supplier: "Energia Sul Distribuidora", category: "Utilidades", dueDate: "29/04/2026", amount: 2150, status: "Vencido", risk: "Médio", issue: "Data vencida" },
+  { id: "PAG-1047", supplier: "Gráfica Paulista", category: "Marketing", dueDate: "30/05/2026", amount: 540, status: "Pago", risk: "Baixo", issue: null },
+  { id: "PAG-1048", supplier: "Zen Escritórios", category: "Administrativo", dueDate: "02/06/2026", amount: 1320, status: "Pendente", risk: "Baixo", issue: null },
+  { id: "PAG-1049", supplier: "Vertex Cloud", category: "Software", dueDate: "15/05/2026", amount: 7600, status: "Pendente", risk: "Médio", issue: "Campo incompleto" },
+  { id: "PAG-1050", supplier: "Clinica Sao Lucas", category: "Saúde", dueDate: "19/05/2026", amount: 985, status: "Em revisão", risk: "Médio", issue: "Fornecedor duplicado" },
+  { id: "PAG-1051", supplier: "Transportes Estrela", category: "Logística", dueDate: "21/04/2026", amount: 9210, status: "Vencido", risk: "Alto", issue: "Data vencida" },
+  { id: "PAG-1052", supplier: "Pinecrest RH", category: "Serviços", dueDate: "10/06/2026", amount: 3300, status: "Pago", risk: "Baixo", issue: null },
+  { id: "PAG-1053", supplier: "Tech Serviços ME", category: "Tecnologia", dueDate: "09/05/2026", amount: 18250, status: "Pendente", risk: "Crítico", issue: "Valor suspeito" },
 ];
 
 export const monthlyVolume = [
-  { month: "Nov", volume: 42000 },
-  { month: "Dec", volume: 51000 },
-  { month: "Jan", volume: 38000 },
-  { month: "Feb", volume: 47000 },
-  { month: "Mar", volume: 62000 },
-  { month: "Apr", volume: 71000 },
-  { month: "May", volume: 89000 },
+  { month: "Nov", volume: 142000 },
+  { month: "Dez", volume: 168000 },
+  { month: "Jan", volume: 138000 },
+  { month: "Fev", volume: 187000 },
+  { month: "Mar", volume: 212000 },
+  { month: "Abr", volume: 231000 },
+  { month: "Mai", volume: 248900 },
 ];
 
 export const errorTypes = [
-  { name: "Duplicate", value: 14 },
-  { name: "Suspicious", value: 9 },
-  { name: "Missing Data", value: 6 },
-  { name: "Overdue", value: 11 },
+  { name: "Duplicados", value: 14 },
+  { name: "Suspeitos", value: 9 },
+  { name: "Incompletos", value: 6 },
+  { name: "Vencidos", value: 11 },
 ];
 
 export const dueDates = [
-  { day: "Mon", count: 3 },
-  { day: "Tue", count: 5 },
-  { day: "Wed", count: 2 },
-  { day: "Thu", count: 7 },
-  { day: "Fri", count: 4 },
-  { day: "Sat", count: 1 },
-  { day: "Sun", count: 0 },
+  { day: "Seg", count: 3 },
+  { day: "Ter", count: 5 },
+  { day: "Qua", count: 2 },
+  { day: "Qui", count: 7 },
+  { day: "Sex", count: 4 },
+  { day: "Sáb", count: 1 },
+  { day: "Dom", count: 0 },
 ];
 
 export const supplierRisk = [
-  { name: "Low", value: 28 },
-  { name: "Medium", value: 14 },
-  { name: "High", value: 6 },
+  { name: "Baixo", value: 28 },
+  { name: "Médio", value: 14 },
+  { name: "Alto", value: 6 },
 ];
 
 export interface Alert {
@@ -70,10 +71,10 @@ export interface Alert {
 }
 
 export const alerts: Alert[] = [
-  { id: "a1", severity: "critical", title: "5 overdue payments", description: "Total $32,480 in overdue payments older than 7 days.", action: "Review and contact suppliers immediately.", timestamp: "2h ago" },
-  { id: "a2", severity: "high", title: "3 duplicate suppliers", description: "Acme Logistics and Acme Logistic likely refer to the same vendor.", action: "Merge supplier records to prevent double payments.", timestamp: "4h ago" },
-  { id: "a3", severity: "high", title: "2 suspicious values detected", description: "Invoice INV-1053 is 312% above the historical average for Helix Labs.", action: "Verify with the requester before approval.", timestamp: "6h ago" },
-  { id: "a4", severity: "medium", title: "12 payments due this week", description: "Combined value: $48,210 due in the next 7 days.", action: "Schedule transfers to avoid late fees.", timestamp: "1d ago" },
-  { id: "a5", severity: "medium", title: "Missing data in 4 records", description: "Required fields are empty in Vertex Cloud entries.", action: "Complete missing fields before reporting.", timestamp: "1d ago" },
-  { id: "a6", severity: "low", title: "Supplier risk increased", description: "Stellar Freight moved from Medium to High risk this month.", action: "Reassess contract terms.", timestamp: "2d ago" },
+  { id: "a1", severity: "critical", title: "Pagamento vencido", description: "Distribuidora Alpha possui pagamento vencido há 5 dias no valor de R$ 12.300,00.", action: "Prioridade: revisar pagamento", timestamp: "há 2h" },
+  { id: "a2", severity: "high", title: "Fornecedor duplicado", description: "Mercado Central Ltda aparece com nomes semelhantes em 2 cadastros.", action: "Revisar cadastro", timestamp: "há 4h" },
+  { id: "a3", severity: "high", title: "Valor suspeito", description: "Tech Serviços ME possui valor 43% acima da média histórica.", action: "Validar lançamento", timestamp: "há 6h" },
+  { id: "a4", severity: "medium", title: "18 pagamentos vencem esta semana", description: "Valor combinado: R$ 48.210,00 nos próximos 7 dias.", action: "Programar transferências", timestamp: "há 1d" },
+  { id: "a5", severity: "medium", title: "Dados incompletos", description: "12 registros estão sem categoria definida.", action: "Completar informações", timestamp: "há 1d" },
+  { id: "a6", severity: "low", title: "Risco de fornecedor aumentou", description: "Transportes Estrela mudou de risco Médio para Alto este mês.", action: "Reavaliar contrato", timestamp: "há 2d" },
 ];

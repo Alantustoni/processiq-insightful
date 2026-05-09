@@ -70,14 +70,14 @@ function Reports() {
           <div className="mb-3 text-sm font-semibold">Error summary</div>
           <div className="space-y-2 text-sm">
             {[
-              ["Duplicate suppliers", 14, "warning"],
-              ["Suspicious values", 9, "destructive"],
-              ["Missing data", 6, "info"],
-              ["Overdue payments", 11, "destructive"],
-            ].map(([n,v,c]: any)=>(
-              <div key={n} className="flex items-center justify-between rounded-lg border border-subtle bg-background/40 px-3 py-2">
-                <span>{n}</span>
-                <span className={`rounded-full px-2 py-0.5 text-[11px] bg-${c}/15 text-${c}`}>{v}</span>
+              { n: "Duplicate suppliers", v: 14, c: "bg-warning/15 text-warning" },
+              { n: "Suspicious values", v: 9, c: "bg-destructive/15 text-destructive" },
+              { n: "Missing data", v: 6, c: "bg-info/15 text-info" },
+              { n: "Overdue payments", v: 11, c: "bg-destructive/15 text-destructive" },
+            ].map((e)=>(
+              <div key={e.n} className="flex items-center justify-between rounded-lg border border-subtle bg-background/40 px-3 py-2">
+                <span>{e.n}</span>
+                <span className={`rounded-full px-2 py-0.5 text-[11px] ${e.c}`}>{e.v}</span>
               </div>
             ))}
           </div>

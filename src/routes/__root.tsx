@@ -72,14 +72,18 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
     meta: [
       { charSet: "utf-8" },
       { name: "viewport", content: "width=device-width, initial-scale=1" },
-      { title: "Lovable App" },
-      { name: "description", content: "Lovable Generated Project" },
+      { title: "ProcessIQ" },
+      { name: "description", content: "ProcessIQ transforms messy spreadsheets into intelligent business decisions for small businesses." },
       { name: "author", content: "Lovable" },
-      { property: "og:title", content: "Lovable App" },
-      { property: "og:description", content: "Lovable Generated Project" },
+      { property: "og:title", content: "ProcessIQ" },
+      { property: "og:description", content: "ProcessIQ transforms messy spreadsheets into intelligent business decisions for small businesses." },
       { property: "og:type", content: "website" },
       { name: "twitter:card", content: "summary" },
       { name: "twitter:site", content: "@Lovable" },
+      { name: "twitter:title", content: "ProcessIQ" },
+      { name: "twitter:description", content: "ProcessIQ transforms messy spreadsheets into intelligent business decisions for small businesses." },
+      { property: "og:image", content: "https://pub-bb2e103a32db4e198524a2e9ed8f35b4.r2.dev/893781b9-7acf-4fd2-a1f8-f65f62dbb6fb/id-preview-d82e48f3--e72eed83-9ec7-4da8-b597-38fdc78f82c2.lovable.app-1778351121955.png" },
+      { name: "twitter:image", content: "https://pub-bb2e103a32db4e198524a2e9ed8f35b4.r2.dev/893781b9-7acf-4fd2-a1f8-f65f62dbb6fb/id-preview-d82e48f3--e72eed83-9ec7-4da8-b597-38fdc78f82c2.lovable.app-1778351121955.png" },
     ],
     links: [
       {

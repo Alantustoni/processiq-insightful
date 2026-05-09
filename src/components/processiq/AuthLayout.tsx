@@ -13,9 +13,9 @@ export function AuthLayout({ title, subtitle, footer, children }: { title: strin
           <Logo />
           <div>
             <blockquote className="text-2xl font-medium leading-snug tracking-tight">
-              "We replaced 4 spreadsheets and a weekly meeting with ProcessIQ. Our finance team got Fridays back."
+              "Substituímos 4 planilhas e uma reunião semanal pelo ProcessIQ. Nosso financeiro recuperou as sextas-feiras."
             </blockquote>
-            <div className="mt-4 text-sm text-muted-foreground">Maya Rivera · COO at Northwind Co.</div>
+            <div className="mt-4 text-sm text-muted-foreground">Marina Ribeiro · Diretora de Operações, Distribuidora Sul</div>
           </div>
         </div>
       </div>
@@ -26,7 +26,7 @@ export function AuthLayout({ title, subtitle, footer, children }: { title: strin
           <p className="mt-2 text-sm text-muted-foreground">{subtitle}</p>
           <div className="mt-8">{children}</div>
           <div className="mt-6 text-center text-sm text-muted-foreground">{footer}</div>
-          <div className="mt-8 text-center text-xs text-muted-foreground"><Link to="/" className="hover:text-foreground">← Back to home</Link></div>
+          <div className="mt-8 text-center text-xs text-muted-foreground"><Link to="/" className="hover:text-foreground">← Voltar ao início</Link></div>
         </div>
       </div>
     </div>

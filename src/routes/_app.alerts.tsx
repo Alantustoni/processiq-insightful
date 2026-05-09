@@ -2,10 +2,10 @@ import { createFileRoute } from "@tanstack/react-router";
 import { PCard } from "@/components/processiq/Card";
 import { Tag } from "@/components/processiq/Badge";
 import { alerts } from "@/lib/mock-data";
-import { AlertTriangle, Bell, Clock, Copy, FileQuestion, ShieldAlert } from "lucide-react";
+import { AlertTriangle, Bell, Clock, ShieldAlert } from "lucide-react";
 
 export const Route = createFileRoute("/_app/alerts")({
-  head: () => ({ meta: [{ title: "Alerts — ProcessIQ" }] }),
+  head: () => ({ meta: [{ title: "Alertas — ProcessIQ" }] }),
   component: Alerts,
 });
 
@@ -15,21 +15,21 @@ function Alerts() {
   return (
     <div className="space-y-6">
       <div>
-        <h1 className="text-2xl font-semibold tracking-tight">Alerts</h1>
-        <p className="text-sm text-muted-foreground">Real-time issues detected across your operational data.</p>
+        <h1 className="text-2xl font-semibold tracking-tight">Alertas inteligentes</h1>
+        <p className="text-sm text-muted-foreground">Problemas detectados em tempo real nos seus dados operacionais.</p>
       </div>
 
       <div className="grid gap-3 md:grid-cols-4">
         {[
-          { l: "Critical", v: alerts.filter(a=>a.severity==="critical").length, c: "destructive" },
-          { l: "High", v: alerts.filter(a=>a.severity==="high").length, c: "destructive" },
-          { l: "Medium", v: alerts.filter(a=>a.severity==="medium").length, c: "warning" },
-          { l: "Low", v: alerts.filter(a=>a.severity==="low").length, c: "info" },
+          { l: "Crítica", v: alerts.filter(a=>a.severity==="critical").length, key: "critical" },
+          { l: "Alta", v: alerts.filter(a=>a.severity==="high").length, key: "high" },
+          { l: "Média", v: alerts.filter(a=>a.severity==="medium").length, key: "medium" },
+          { l: "Baixa", v: alerts.filter(a=>a.severity==="low").length, key: "low" },
         ].map(s=>(
           <PCard key={s.l} className="!p-4">
             <div className="flex items-center justify-between">
               <div className="text-xs text-muted-foreground">{s.l}</div>
-              <Tag variant={s.l.toLowerCase()}>{s.l}</Tag>
+              <Tag variant={s.key}>{s.l}</Tag>
             </div>
             <div className="mt-2 text-2xl font-semibold">{s.v}</div>
           </PCard>
@@ -51,10 +51,10 @@ function Alerts() {
                   </div>
                   <p className="mt-1 text-sm text-muted-foreground">{a.description}</p>
                   <div className="mt-3 inline-flex items-center gap-2 rounded-lg border border-subtle bg-background/40 px-3 py-1.5 text-xs">
-                    <Bell className="h-3 w-3 text-primary" /> Recommended: <span className="text-foreground">{a.action}</span>
+                    <Bell className="h-3 w-3 text-primary" /> Recomendado: <span className="text-foreground">{a.action}</span>
                   </div>
                 </div>
-                <button className="btn-outline">Resolve</button>
+                <button className="btn-outline">Resolver</button>
               </div>
             </PCard>
           );

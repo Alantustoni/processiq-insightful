@@ -5,12 +5,12 @@ import { cn } from "@/lib/utils";
 import { useState } from "react";
 
 const items = [
-  { to: "/dashboard", label: "Dashboard", icon: LayoutDashboard },
-  { to: "/upload", label: "Upload Files", icon: Upload },
-  { to: "/analysis", label: "Analysis", icon: Table2 },
-  { to: "/alerts", label: "Alerts", icon: Bell },
-  { to: "/reports", label: "Reports", icon: FileBarChart },
-  { to: "/settings", label: "Settings", icon: Settings },
+  { to: "/dashboard", label: "Painel", icon: LayoutDashboard },
+  { to: "/upload", label: "Upload de Arquivos", icon: Upload },
+  { to: "/analysis", label: "Análises", icon: Table2 },
+  { to: "/alerts", label: "Alertas", icon: Bell },
+  { to: "/reports", label: "Relatórios", icon: FileBarChart },
+  { to: "/settings", label: "Configurações", icon: Settings },
 ];
 
 export function AppShell() {
@@ -53,18 +53,18 @@ export function AppShell() {
         </nav>
         <div className="mt-auto space-y-3">
           <div className="rounded-xl border border-sidebar-border bg-sidebar-accent/40 p-3">
-            <div className="text-xs font-medium text-sidebar-foreground">Free plan</div>
-            <div className="mt-1 text-[11px] text-muted-foreground">12 / 50 analyses used</div>
+            <div className="text-xs font-medium text-sidebar-foreground">Plano Gratuito</div>
+            <div className="mt-1 text-[11px] text-muted-foreground">8 / 20 análises utilizadas</div>
             <div className="mt-2 h-1.5 overflow-hidden rounded-full bg-background">
-              <div className="h-full w-1/4 bg-gradient-primary" />
+              <div className="h-full w-2/5 bg-gradient-primary" />
             </div>
-            <button className="mt-3 w-full rounded-md bg-gradient-primary px-3 py-1.5 text-xs font-medium text-primary-foreground shadow-glow transition hover:opacity-90">Upgrade</button>
+            <button className="mt-3 w-full rounded-md bg-gradient-primary px-3 py-1.5 text-xs font-medium text-primary-foreground shadow-glow transition hover:opacity-90">Fazer upgrade</button>
           </div>
           <div className="flex items-center gap-3 rounded-lg p-2">
-            <div className="flex h-8 w-8 items-center justify-center rounded-full bg-gradient-primary text-xs font-semibold">AB</div>
+            <div className="flex h-8 w-8 items-center justify-center rounded-full bg-gradient-primary text-xs font-semibold">RM</div>
             <div className="flex-1 text-xs">
-              <div className="font-medium">Alex Becker</div>
-              <div className="text-muted-foreground">alex@company.io</div>
+              <div className="font-medium">Rafael Moraes</div>
+              <div className="text-muted-foreground">rafael@empresa.com.br</div>
             </div>
             <Link to="/" className="rounded-md p-1.5 text-muted-foreground hover:bg-muted hover:text-foreground"><LogOut className="h-4 w-4" /></Link>
           </div>
@@ -75,11 +75,11 @@ export function AppShell() {
         <header className="sticky top-0 z-30 hidden h-14 items-center gap-4 border-b border-subtle glass px-6 md:flex">
           <div className="relative flex-1 max-w-md">
             <Search className="pointer-events-none absolute left-3 top-1/2 h-4 w-4 -translate-y-1/2 text-muted-foreground" />
-            <input placeholder="Search records, suppliers, alerts..." className="h-9 w-full rounded-lg border border-input bg-input/50 pl-9 pr-3 text-sm outline-none transition focus:border-primary focus:bg-input" />
+            <input placeholder="Buscar registros, fornecedores, alertas..." className="h-9 w-full rounded-lg border border-input bg-input/50 pl-9 pr-3 text-sm outline-none transition focus:border-primary focus:bg-input" />
           </div>
           <div className="ml-auto flex items-center gap-2">
             <button className="rounded-md border border-border bg-card px-3 py-1.5 text-xs text-muted-foreground hover:text-foreground">⌘K</button>
-            <Link to="/upload" className="rounded-md bg-gradient-primary px-3 py-1.5 text-xs font-medium text-primary-foreground shadow-glow">+ New analysis</Link>
+            <Link to="/upload" className="rounded-md bg-gradient-primary px-3 py-1.5 text-xs font-medium text-primary-foreground shadow-glow">+ Nova análise</Link>
           </div>
         </header>
         <main className="p-4 md:p-8"><Outlet /></main>

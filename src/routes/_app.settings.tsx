@@ -3,19 +3,19 @@ import { PCard } from "@/components/processiq/Card";
 import { useState } from "react";
 
 export const Route = createFileRoute("/_app/settings")({
-  head: () => ({ meta: [{ title: "Settings — ProcessIQ" }] }),
+  head: () => ({ meta: [{ title: "Configurações — ProcessIQ" }] }),
   component: Settings,
 });
 
-const tabs = ["Company profile", "Upload preferences", "Notifications", "AI analysis"];
+const tabs = ["Perfil da empresa", "Preferências de upload", "Notificações", "Análise com IA"];
 
 function Settings() {
   const [tab, setTab] = useState(0);
   return (
     <div className="space-y-6">
       <div>
-        <h1 className="text-2xl font-semibold tracking-tight">Settings</h1>
-        <p className="text-sm text-muted-foreground">Manage your workspace, uploads and AI preferences.</p>
+        <h1 className="text-2xl font-semibold tracking-tight">Configurações</h1>
+        <p className="text-sm text-muted-foreground">Gerencie sua empresa, uploads e preferências de IA.</p>
       </div>
 
       <div className="flex flex-wrap gap-1 rounded-xl border border-subtle bg-card p-1">
@@ -26,51 +26,50 @@ function Settings() {
 
       {tab===0 && (
         <PCard>
-          <SectionTitle title="Company profile" sub="Used in your reports and exports." />
+          <SectionTitle title="Perfil da empresa" sub="Usado em relatórios e exportações." />
           <div className="grid gap-4 md:grid-cols-2">
-            <Field label="Company name" defaultValue="Northwind Co." />
-            <Field label="Industry" defaultValue="Logistics & Distribution" />
-            <Field label="Country" defaultValue="United States" />
-            <Field label="Currency" defaultValue="USD" />
-            <Field label="Fiscal year start" defaultValue="January" />
-            <Field label="Team size" defaultValue="11–50" />
+            <Field label="Nome da empresa" defaultValue="Distribuidora Sul Ltda" />
+            <Field label="CNPJ" defaultValue="12.345.678/0001-90" />
+            <Field label="Segmento" defaultValue="Distribuição e Atacado" />
+            <Field label="Número de funcionários" defaultValue="11–50" />
           </div>
-          <div className="mt-6 flex justify-end gap-2"><button className="btn-ghost">Cancel</button><button className="btn-primary">Save changes</button></div>
+          <div className="mt-6 flex justify-end gap-2"><button className="btn-ghost">Cancelar</button><button className="btn-primary">Salvar alterações</button></div>
         </PCard>
       )}
       {tab===1 && (
         <PCard>
-          <SectionTitle title="Upload preferences" sub="How we interpret your spreadsheets." />
+          <SectionTitle title="Preferências de upload" sub="Como o ProcessIQ interpreta suas planilhas." />
           <div className="space-y-4">
-            <Toggle label="Auto-detect column headers" desc="Read the first row as field names." defaultChecked />
-            <Toggle label="Skip empty rows" desc="Ignore fully blank rows during analysis." defaultChecked />
-            <Toggle label="Treat negative values as refunds" desc="Useful for accounting exports." />
-            <Field label="Default date format" defaultValue="YYYY-MM-DD" />
+            <Toggle label="Detectar duplicados automaticamente" desc="Identifica fornecedores com nomes parecidos." defaultChecked />
+            <Toggle label="Validar datas de vencimento" desc="Marca pagamentos vencidos e próximos do vencimento." defaultChecked />
+            <Toggle label="Identificar valores suspeitos" desc="Sinaliza lançamentos fora do padrão histórico." defaultChecked />
+            <Toggle label="Gerar resumo automático" desc="Cria um resumo executivo após cada análise." />
           </div>
         </PCard>
       )}
       {tab===2 && (
         <PCard>
-          <SectionTitle title="Notification preferences" sub="Decide where and when we reach out." />
+          <SectionTitle title="Notificações" sub="Escolha quando e como avisamos você." />
           <div className="space-y-4">
-            <Toggle label="Email me when an analysis finishes" defaultChecked />
-            <Toggle label="Critical alerts (overdue, suspicious)" defaultChecked />
-            <Toggle label="Weekly executive summary" defaultChecked />
-            <Toggle label="Product updates and tips" />
+            <Toggle label="Alertas de vencimento" desc="Avisos sobre pagamentos vencidos ou próximos." defaultChecked />
+            <Toggle label="Erros críticos" desc="Notificação imediata para problemas graves." defaultChecked />
+            <Toggle label="Relatório semanal" desc="Resumo executivo enviado todo segunda-feira." defaultChecked />
+            <Toggle label="Atualizações do sistema" desc="Novidades e melhorias do ProcessIQ." />
           </div>
         </PCard>
       )}
       {tab===3 && (
         <PCard>
-          <SectionTitle title="AI analysis preferences" sub="Tune how aggressive the AI should be." />
+          <SectionTitle title="Análise com IA" sub="Ajuste como a inteligência artificial atua nos seus dados." />
           <div className="space-y-5">
             <div>
-              <div className="mb-2 flex items-center justify-between text-sm"><span>Anomaly sensitivity</span><span className="text-muted-foreground">Balanced</span></div>
+              <div className="mb-2 flex items-center justify-between text-sm"><span>Sensibilidade de anomalias</span><span className="text-muted-foreground">Equilibrada</span></div>
               <input type="range" defaultValue={60} className="w-full accent-[oklch(0.65_0.20_265)]" />
             </div>
-            <Toggle label="Detect duplicate suppliers (fuzzy match)" defaultChecked />
-            <Toggle label="Flag values above historical average (3σ)" defaultChecked />
-            <Toggle label="Generate plain-English insights" defaultChecked />
+            <Toggle label="Ativar insights automáticos" desc="Gera resumos inteligentes em cada análise." defaultChecked />
+            <Toggle label="Gerar recomendações" desc="Sugestões de ação baseadas nos seus dados." defaultChecked />
+            <Toggle label="Priorizar riscos financeiros" desc="Destaca problemas com maior impacto monetário." defaultChecked />
+            <Toggle label="Detectar anomalias estatísticas" desc="Marca valores fora do padrão histórico (3σ)." defaultChecked />
           </div>
         </PCard>
       )}

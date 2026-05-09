@@ -1,5 +1,5 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
-import { ArrowRight, BarChart3, BrainCircuit, ShieldCheck, Sparkles, Upload, Zap, Check, FileSpreadsheet, AlertTriangle, TrendingUp, Bell, Calendar, Copy } from "lucide-react";
+import { ArrowRight, BarChart3, BrainCircuit, ShieldCheck, Sparkles, Upload, Check, FileSpreadsheet, AlertTriangle, TrendingUp, Bell, Calendar, Copy } from "lucide-react";
 import { Logo } from "@/components/processiq/Logo";
 
 export const Route = createFileRoute("/")({
@@ -289,10 +289,6 @@ function Landing() {
         </div>
       </footer>
 
-      <span className="hidden bg-zap-Zap" aria-hidden /> {/* keep tree-shaker happy for unused icon import */}
     </div>
   );
 }
-
-// keep Zap import referenced for future use
-void Zap;
